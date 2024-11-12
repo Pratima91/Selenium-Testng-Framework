@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2024-11-05T14:21:20 IST" name="Default suite" finished-at="2024-11-05T14:21:27 IST" duration-ms="7639">
+    <groups>
+    </groups>
+    <test started-at="2024-11-05T14:21:20 IST" name="Default test" finished-at="2024-11-05T14:21:27 IST" duration-ms="7639">
+      <class name="TestCases.AddToCartTestCases">
+        <test-method signature="VerifyProductPriceBeforeAndAfter()[pri:0, instance:TestCases.AddToCartTestCases@6356695f]" started-at="2024-11-05T14:21:20 IST" name="VerifyProductPriceBeforeAndAfter" finished-at="2024-11-05T14:21:27 IST" duration-ms="7586" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyProductPriceBeforeAndAfter -->
+      </class> <!-- TestCases.AddToCartTestCases -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
