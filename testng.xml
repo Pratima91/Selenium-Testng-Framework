@@ -9,16 +9,16 @@
 	<test name="chromeTests">
 		<parameter name="browser" value="chrome" />
 		<classes>
-			<class name="TestCases.registerTestCases" />
-			<!--   <class name="TestCases.loginTestCases"/>  -->
+			<class name="TestCases.RegisterTestCases" />
+			<!--   <class name="TestCases.LoginTestCases"/>  -->
 		</classes>
 	</test>
 
 	<test name="firefoxTests">
 		<parameter name="browser" value="fireFox" />
 		<classes>
-			<class name="TestCases.registerTestCases" />
-			<!--  <class name="TestCases.loginTestCases"/>  -->
+			<class name="TestCases.RegisterTestCases" />
+			<!--  <class name="TestCases.LoginTestCases"/>  -->
 		</classes>
 	</test>
 
