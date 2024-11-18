@@ -14,7 +14,7 @@ import Resources.BaseClass;
 public class AddToCartTestCases  {
 
 	@Test
-	public void VerifyProductPriceBeforeAndAfter() throws IOException {
+	public void VerifyProductPriceBeforeAndAfter() throws IOException, InterruptedException {
 		
 		WebDriver driver = new ChromeDriver();
 
@@ -28,19 +28,19 @@ public class AddToCartTestCases  {
 
 		String iphoneCost = driver.findElement(By.xpath("//p[@class='price']")).getText();
 
-		System.out.println(iphoneCost);
+		//System.out.println(iphoneCost);
 
 		String iphoneArray[] = iphoneCost.split(" ");
 
-		System.out.println(Arrays.toString(iphoneArray));
+		//System.out.println(Arrays.toString(iphoneArray));
 
 		String iphoneArrayFE = iphoneArray[0];
 
-		System.out.println(iphoneArrayFE);
+		//System.out.println(iphoneArrayFE);
 
 		String iphoneCostWithNumber = iphoneArrayFE.replaceAll("[^\\d.]", "");
 
-		System.out.println(iphoneCostWithNumber);
+		//System.out.println(iphoneCostWithNumber);
 
 		double finalIphoneCost = Double.parseDouble(iphoneCostWithNumber);
 
@@ -58,19 +58,19 @@ public class AddToCartTestCases  {
 
 		String SamsungCost = driver.findElement(By.xpath("(//p[@class='price'])[2]")).getText();
 
-		System.out.println(SamsungCost);
+		//System.out.println(SamsungCost);
 
 		String SamsungArray[] = SamsungCost.split(" ");
 
-		System.out.println(Arrays.toString(SamsungArray));
+		//System.out.println(Arrays.toString(SamsungArray));
 
 		String SamsungArrayFE = SamsungArray[0];
 
-		System.out.println(SamsungArrayFE);
+		//System.out.println(SamsungArrayFE);
 
 		String SamsungCostWithNumber = SamsungArrayFE.replaceAll("[^\\d.]", "");
 
-		System.out.println(SamsungCostWithNumber);
+		//System.out.println(SamsungCostWithNumber);
 
 		double finalSamsungCost = Double.parseDouble(SamsungCostWithNumber);
 
@@ -80,7 +80,7 @@ public class AddToCartTestCases  {
 
 		double d = finalIphoneCost + finalSamsungCost;
 
-		System.out.println(d);
+		//System.out.println(d);
 
 		String t = "$" + d;
 
@@ -88,8 +88,14 @@ public class AddToCartTestCases  {
 
 		//WebElement p = driver.findElement(By.xpath("//span[@id='cart-total']"));
 		
-		WebElement p = driver.findElement(By.xpath("(//i[@class='fa fa-shopping-cart'])[2]"));
+		Thread.sleep(2000);
+		
+		driver.findElement(By.xpath("(//i[@class='fa fa-shopping-cart'])[2]")).click();
+		
+		Thread.sleep(2000);
 
+		WebElement p = driver.findElement(By.xpath("(//td[@class='text-right'])[12]"));
+		
 		String TotalText = p.getText();
 
 		System.out.println(TotalText);
