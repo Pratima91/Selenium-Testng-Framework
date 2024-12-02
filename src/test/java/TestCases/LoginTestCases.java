@@ -17,6 +17,7 @@ public class LoginTestCases extends BaseClass {
 	@Test
 	public void  verifyLoginWithValidData() throws IOException {
 		
+		String emailID = getRandomEmailID();  //testuer_chrome_1233444@example.com
 		
 		HomePageObjects hpo = new HomePageObjects(driver);
 		hpo.clickOnMyAccount().click();
@@ -26,7 +27,7 @@ public class LoginTestCases extends BaseClass {
 	
 		LoginPageObjects lpo = new LoginPageObjects(driver);
 		
-		lpo.enterEmail().sendKeys(email);
+		lpo.enterEmail().sendKeys(emailID);
 		lpo.enterLoginPassword().sendKeys(Constants.password);
 		lpo.clickOnSubmit().click();
 		CommonMethods.handleAssertion(lpo.AccountLoggedin().getText(), "My Account");

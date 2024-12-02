@@ -1,5 +1,6 @@
 package Resources;
 
+import org.openqa.selenium.WebDriver;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
@@ -37,10 +38,15 @@ public class Listeners extends extentReportManager implements ITestListener {
 			test.log(Status.FAIL, "Test CASE Failed is " + result.getName());
 			test.log(Status.FAIL, "Test CASE Failed is " + result.getThrowable()); // To throw excpetion
 
-			String screenshotPath = BaseClass.screenShot(BaseClass.driver, result.getName());
+			WebDriver driver = ((BaseClass) result.getInstance()).driver;
+			
+			if(driver != null) {
+			
+			String screenshotPath = new BaseClass().screenShot(driver, result.getName());
 
 			test.addScreenCaptureFromPath(screenshotPath); // Adding screenshot inside report//To add name in extent
 															// report
+			}
 		}
 	}
 

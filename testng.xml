@@ -10,7 +10,7 @@
 		<parameter name="browser" value="chrome" />
 		<classes>
 			<class name="TestCases.RegisterTestCases" />
-			<!--   <class name="TestCases.LoginTestCases"/>  -->
+		    <class name="TestCases.LoginTestCases"/>  
 		</classes>
 	</test>
 
@@ -18,7 +18,7 @@
 		<parameter name="browser" value="fireFox" />
 		<classes>
 			<class name="TestCases.RegisterTestCases" />
-			<!--  <class name="TestCases.LoginTestCases"/>  -->
+		    <class name="TestCases.LoginTestCases"/> 
 		</classes>
 	</test>
 

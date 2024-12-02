@@ -16,6 +16,8 @@ public class RegisterTestCases extends BaseClass {
 
 	@Test
 	public void verifyRegsiterationWithValidData() throws IOException, InterruptedException {
+		
+		String emailID = getRandomEmailID();  //testuer_chrome_1233444@example.com
 
 
 		HomePageObjects hpo = new HomePageObjects(driver);
@@ -28,7 +30,7 @@ public class RegisterTestCases extends BaseClass {
 	    
 		rpo.getfirstName().sendKeys(Constants.firstName);
 		rpo.getLastName().sendKeys(Constants.lastName);
-		rpo.geteMail().sendKeys(email);
+		rpo.geteMail().sendKeys(emailID);
 		rpo.getTelephone().sendKeys(Constants.telephone);
 		
 	  //  commonMethods.handleExplictWait(driver, 5, rpo.getPassword());

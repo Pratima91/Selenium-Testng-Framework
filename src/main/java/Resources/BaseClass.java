@@ -22,11 +22,15 @@ import org.testng.annotations.Parameters;
 
 public class BaseClass {
 
-	public static WebDriver driver;
+	public WebDriver driver;
 	public Properties prop;
 
-	public static String email = generateRandomEmailID();
+	//public static String email = generateRandomEmailID();
+	
+	private static ThreadLocal<String> randomEmail = ThreadLocal.withInitial(() -> null);
 
+	@BeforeMethod
+	@Parameters("browser")
 	public void initializeDriver(String browserName) throws IOException {
 
 		// This will help to to read the data.properties file
@@ -55,16 +59,26 @@ public class BaseClass {
 
 			System.out.println("please pass the correct browser value");
 		}
-
+		
+		driver.manage().deleteAllCookies();
+		driver.get(prop.getProperty("url"));
+		
+		if (randomEmail.get() == null) {
+			randomEmail.set("testuser_" + browserName + "_" + System.currentTimeMillis() + "@example.com");
+			
+			                 // testuer_chrome_1233444@example.com
+		}
+		
+		
 	}
 
-	public static String generateRandomEmailID() {
-		return "test" + System.currentTimeMillis() + "@gmail.com";
-
+	public String getRandomEmailID() {
+		return randomEmail.get();  // testuer_chrome_1233444@example.com
+		
 	}
 
 	// To take the screenshot and store in one folder-
-	public static String screenShot(WebDriver driver, String filename) {
+	public String screenShot(WebDriver driver, String filename) {
 		String date = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
 		// 20241107080800
 
@@ -88,18 +102,20 @@ public class BaseClass {
 		extentReportManager.endReport();
 	}
 
-	@BeforeMethod
+	/* @BeforeMethod
 	@Parameters("browser")
 	public void browserlaunch(String browser) throws IOException {
 
 		initializeDriver(browser);
 		String url = prop.getProperty("url");
 		driver.get(url);
-	}
+	} */
 
 	@AfterMethod
-	public void browserClose() {
+	public void tearDown() {
+		if(driver != null) {
 		// driver.quit();
+		}
 	}
 
 }
